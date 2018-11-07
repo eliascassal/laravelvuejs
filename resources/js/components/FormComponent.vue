@@ -26,19 +26,25 @@
 
         },
         mounted() {
-            console.log('Component mounted.')
-        },
+            console.log('Component mounted en formulario.')
+        },  
         methods: {
             newThought(){
-                let thought = {
-                    id: 2,
-                    description: this.description,
-                    created_at:'11/11/1111'
-                    };
-                this.$emit('new', thought);
-                this.description='';
-                }
-            }
+                const params = {
+                    description: this.description
+                };
 
-        }   
+                this.description='';
+
+                axios.post('/thoughts', params)
+                .then((response) =>{
+                    const thought = response.data;
+                    this.$emit('new', thought);
+                });
+
+                
+            }
+        }
+
+    }   
 </script>

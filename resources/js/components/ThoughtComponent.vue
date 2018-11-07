@@ -4,6 +4,7 @@
          <div class="card-header">
             <p>
                 publicado el: {{ thought.created_at }}
+                ultima actualizacion: {{ thought.updated_at }}
             </p>
          </div>
             <div class="card-body">
@@ -36,14 +37,30 @@
         },
         methods:{
             onClickDelete(){
-                this.$emit('delete');
+                var str1 = "/thoughts/";
+                var str2 = this.thought.id;
+                var res = str1.concat(str2);
+                  axios.delete(res).then(() => {
+                    this.$emit('delete');
+                });
             },
             onClickEdit(){
                 this.editMode=true;
             },
             onClickUpdate(){
-                this.editMode=false;
-                this.$emit('update', thought);
+                const params = {
+                    description: this.thought.description,
+                };
+                var str1 = "/thoughts/";
+                var str2 = this.thought.id;
+                var res = str1.concat(str2);
+
+                axios.put(res, params).then((response) => {
+                    this.editMode=false;
+                    const thought = response.data;
+                    this.$emit('update', thought);
+                });
+                
             }
         }
     }

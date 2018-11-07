@@ -18,15 +18,13 @@
     export default {
         data(){
             return{
-                thoughts: [{
-                    'id':1,
-                    'description':'abc',
-                    'created_at':'17/10/2018'
-                }]
+                thoughts: []
             }
-        },
+        }, 
         mounted() {
-            console.log('Component mounted.')
+            axios.get('/thoughts').then((response)=> {
+                this.thoughts=response.data;
+            });
         },
         methods:{
             addThought(thought){
@@ -35,8 +33,8 @@
             deleteThought(index) {
                 this.thoughts.splice(index, 1);
             },
-            updateThought(index) {
-
+            updateThought(index, thought) {
+                this.thoughts[index]=thought;
             }
         }
     }

@@ -21,7 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/horario', 'HorarioController');
 Route::resource('/docente', 'DocenteController');
 
-Route::resource('/materia', 'MateriaController');
+Route::apiResource('/materia', 'MateriaController');
 Route::resource('/aula', 'AulaController');
 Route::resource('/carrera', 'CarreraController');
 Route::resource('/ayudante', 'AyudanteController');
+Route::apiResource('/thoughts', 'ThoughtController');
+

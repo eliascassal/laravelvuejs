@@ -17,7 +17,12 @@ window.Vue = require('vue');
 
 Vue.component('form-component', require('./components/FormComponent.vue'));
 Vue.component('thought-component', require('./components/ThoughtComponent.vue'));
-Vue.component('hora-component', require('./components/HorarioComponent.vue'));
+Vue.component('horario-component', require('./components/HorarioComponent.vue'));
+Vue.component('formMateria-component', require('./components/FormMateriaComponent.vue'));
+Vue.component('materia-component', require('./components/MateriaComponent.vue'));
+Vue.component('materias-component', require('./components/MateriasComponent.vue'));
+Vue.component('menu-component', require('./components/MenuComponent.vue'));
+
 
 
 const app = new Vue({

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<hora-component></hora-component>
+
+	<horario-component></horario-component>
 
 @endsection
